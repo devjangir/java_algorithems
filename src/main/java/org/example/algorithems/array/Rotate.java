@@ -13,9 +13,13 @@ public class Rotate {
     }
     public static int[] rotate(int[] input, int k) {
         int rotation = k % input.length;
+        // reverse the whole array
         reverse(input, 0, input.length - 1);
+        // reverse the first k elements
         reverse(input, 0, rotation - 1);
+        // reverse the last n-k elements
         reverse(input, rotation, input.length - 1);
+        // return the rotated array
         return input;
     }
     public static void main(String[] args) {
