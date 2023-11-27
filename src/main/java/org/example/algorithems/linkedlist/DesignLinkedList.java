@@ -55,12 +55,14 @@ class LinkedList {
     void deleteNodeByValue(int value) {
         if(head.value == value) {
             head = head.next;
+            size--;
         }
         Node currentNode = head;
         Node previousNode = null;
         while(currentNode != null) {
             if(currentNode.value == value) {
                 previousNode.next = currentNode.next;
+                size--;
                 break;
             }
             previousNode = currentNode;
