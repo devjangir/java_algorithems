@@ -11,6 +11,7 @@ public class ArrayDequeImpl {
         arrayDeque.offerFirst("D");
         arrayDeque.addLast("E");
         arrayDeque.addLast("F");
+        System.out.println(arrayDeque.size());
         System.out.println(arrayDeque.getFirst());
         System.out.println(arrayDeque.getLast());
         System.out.println(arrayDeque.contains("A"));
