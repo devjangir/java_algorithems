@@ -15,6 +15,60 @@ public class BinarySearchTree {
         return parent == null;
     }
 
+    public boolean search(int value) {
+        if(parent == null) {
+            return false;
+        }
+        Node current = parent;
+        while(current != null) {
+            Node left = current.left;
+            Node right = current.right;
+            if(current.data == value) {
+                return true;
+            } else if(current.data > value) {
+                if(left != null) {
+                    current = left;
+                } else {
+                    return false;
+                }
+            } else {
+                if(right != null) {
+                    current = right;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean searchRecursive(Node parent, int value) {
+        if(parent == null) {
+            return false;
+        }
+        if(parent.data == value) {
+            return true;
+        }
+        if(parent.data > value) {
+            return searchRecursive(parent.left, value);
+        } else {
+            return searchRecursive(parent.right, value);
+        }
+
+
+
+//        if(parent == null) {
+//            return false;
+//        }
+//        if(parent.data == value) {
+//            return true;
+//        }
+//        if(parent.data > value) {
+//            return searchRecursive(parent.left, value);
+//        } else {
+//            return searchRecursive(parent.right, value);
+//        }
+    }
     public Node recursiveAdd(Node current, int value) {
 
         // Base Condition
@@ -85,5 +139,13 @@ public class BinarySearchTree {
         binarySearchTree.add(13);
         binarySearchTree.add(17);
         binarySearchTree.printTree(binarySearchTree.parent);
+
+        System.out.println(binarySearchTree.search(10));
+        System.out.println(binarySearchTree.search(56));
+
+        System.out.println(binarySearchTree.searchRecursive(binarySearchTree.parent, 10));
+        System.out.println(binarySearchTree.searchRecursive(binarySearchTree.parent, 100));
+
+
     }
 }
